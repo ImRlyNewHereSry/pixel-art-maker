@@ -89,20 +89,14 @@ create func makeButtons(currentColor) {
 //------ End code from Chat GPT
 
 // create pixels, and add event listener to each pixel
-const pixels = document.querySelectorAll(".pixel");
-pixels.forEach((pixel) => {
-  pixel.addEventListener("click", () => {
-    pixel.style.backgroundColor = "black";
-  });
-});
 
-// Add clear button, and add event listener to clear button
-const clearButton = document.getElementById("clear-button");
-clearButton.addEventListener("click", () => {
-  pixels.forEach((pixel) => {
-    pixel.style.backgroundColor = "white";
-  });
-});
+
+const pixels = document.querySelectorAll(".pixel");
+// pixels.forEach((pixel) => {
+//   pixel.addEventListener("click", () => {
+//     pixel.style.backgroundColor = "currentColor";
+//   });
+// });
 
 function createGrid() {
   //simple here, the purpose is to make the layout first, which is the grid of pixels.
@@ -122,102 +116,108 @@ function createGrid() {
 
 createGrid(); // here we invoke the function, whereas before we only described it. This is what actually calls the function to work.
 
-// function clickToPaint(event) {
-//   // here's where we'll be making our changes to the pixel's colors.
-//   event.target.style.backgroundColor = currentColor; //we're saying- At this event, (click) we want the computer to target the background color of the pixel and modify it to red.
-// }
-// function createColorPalette(color) {
-//   let colorArr = ['green', 'blue', 'red']
-// }
-
-let currentColor = "red";
-
+// Add clear button, and add event listener to clear button
+function clearDrawing() {
+  const pixels = document.querySelectorAll(".pixel");
+  pixels.forEach(pixel => {
+    pixel.style.backgroundColor = "white";
+  });
+}
+//set color when page loads
+let currentColor = "white";
+//set available colors to choose from
+const colorArr = ["red", "green", "blue", "black", "white"];
+//create the colorPalette div and classes.
 const colorPalette = document.createElement("div");
 colorPalette.classList.add("color-palette");
 
-const redButton = document.createElement("div");
-redButton.classList.add("red-button");
+// add the available colors to the color palette
+// function addColorsToPalette() {
+//   // create a new div element
+//   const newDiv = document.createElement("div");
 
-// {/* <div class="red-button"></div> */}
+//   // and give it some content
+//   const newContent = document.createTextNode(colorArr);
 
-const blueButton = document.createElement("div");
-blueButton.classList.add("blue-button");
-blueButton.addEventListener("click", function () {
-  currentColor = "blue";
+//   // add the text node to the newly created div
+//   newDiv.appendChild(newContent);
+
+//   // add the newly created element and its content into the DOM
+//   const currentDiv = document.getElementById("div1");
+//   document.body.insertBefore(newDiv, currentDiv);
+// }
+
+colorArr.forEach(colorArr => {
+  const colorDiv = document.createElement("div");
+  colorDiv.classList.add("color");
+  colorDiv.style.backgroundColor = color;
+  colorDiv.addEventListener("click", () => {
+    currentColor = color;
+  });
+  colorPalette.appendChild(colorDiv);
+});
+// paint the pixel when the mouse button is held down and moved over the pixels
+let isPainting = false;
+grid.addEventListener("mousedown", () => {
+  isPainting = true;
 });
 
-const yellowButton = document.createElement("div");
-yellowButton.classList.add("yellow-button");
-yellowButton.addEventListener("click", function () {
-  currentColor = "yellow";
+grid.addEventListener("mouseup", () => {
+  isPainting = false;
 });
 
-const greenButton = document.createElement("div");
-greenButton.classList.add("green-button");
-greenButton.addEventListener("click", () => {
-  currentColor = "green";
+grid.addEventListener("mousemove", event => {
+  if (isPainting) {
+    const pixel = event.target;
+    if (pixel.classList.contains("pixel")) {
+      pixel.style.backgroundColor = currentColor;
+    }
+  }
 });
 
-const blackButton = document.createElement("div");
-blackButton.classList.add("black-button");
-blackButton.addEventListener("click", function () {
-  currentColor = "black";
-});
 
-colorPalette.append(
-  redButton,
-  blueButton,
-  yellowButton,
-  greenButton,
-  blackButton
-);
 
-document.body.appendChild(colorPalette);
 
-// const draggableElement = document.getElementsByClassName("grid");
 
-// let startX, startY, deltaX, deltaY;
 
-// draggableElement.addEventListener("mousedown", (event) => {
-//   startX = event.clientX;
-//   startY = event.clientY;
+// const redButton = document.createElement("div");
+// redButton.classList.add("red-button");
+// redButton.addEventListener("click", function () {
+//   currentColor= "red"
+// })
 
-//   document.addEventListener("mousemove", onMouseMove);
-//   document.addEventListener("mouseup", onMouseUp);
+// // {/* <div class="red-button"></div> */}
+
+// const blueButton = document.createElement("div");
+// blueButton.classList.add("blue-button");
+// blueButton.addEventListener("click", function () {
+//   currentColor = "blue";
 // });
 
-// function onMouseMove(event) {
-//   deltaX = event.clientX - startX;
-//   deltaY = event.clientY - startY;
+// const yellowButton = document.createElement("div");
+// yellowButton.classList.add("yellow-button");
+// yellowButton.addEventListener("click", function () {
+//   currentColor = "yellow";
+// });
 
-//   draggableElement.style.left = `${draggableElement.offsetLeft + deltaX}px`;
-//   draggableElement.style.top = `${draggableElement.offsetTop + deltaY}px`;
+// const greenButton = document.createElement("div");
+// greenButton.classList.add("green-button");
+// greenButton.addEventListener("click", () => {
+//   currentColor = "green";
+// });
 
-//   startX = event.clientX;
-//   startY = event.clientY;
-// }
+// const blackButton = document.createElement("div");
+// blackButton.classList.add("black-button");
+// blackButton.addEventListener("click", function () {
+//   currentColor = "black";
+// });
 
-// function onMouseUp() {
-//   document.removeEventListener("mousemove", onMouseMove);
-//   document.removeEventListener("mouseup", onMouseUp);
-// }
+// colorPalette.append(
+//   redButton,
+//   blueButton,
+//   yellowButton,
+//   greenButton,
+//   blackButton
+// );
 
-// In JavaScript, when an event is triggered
-//(such as a click, hover, or keypress), an event object is automatically created by
-//the browser and passed as an argument to the event listener function that's
-//responsible for handling the event.
-
-// By convention, this event object is often named event or e, and it contains
-//information about the event that was triggered, such as:
-
-// The type of the event (e.g. "click", "mouseover", "keydown")
-// The target element that the event was triggered on
-// The position of the mouse pointer (for mouse events)
-// The key that was pressed (for keyboard events)
-// The time at which the event occurred
-// Other properties and methods that provide additional details about the event
-// You can access these properties and methods of the event object inside your
-//event listener function to perform specific actions based on the event that was
-//triggered. For example, you might use the event.target property to identify the
-//element that was clicked, or use the event.preventDefault() method to prevent the
-//default behavior of an event (such as following a link or submitting a form).
+// document.body.appendChild(colorPalette);

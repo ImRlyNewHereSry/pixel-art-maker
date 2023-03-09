@@ -29,56 +29,38 @@
   width: 50px;
   background-color: red;
 }
-
-.blue-button {
-  height: 50px;
-  width: 50px;
-  background-color: blue;
-}
-
-.black-button {
-  height: 50px;
-  width: 50px;
-  background-color: black;
-}
-
-.yellow-button {
-  height: 50px;
-  width: 50px;
-  background-color: yellow;
-}
-
 .green-button {
   height: 50px;
   width: 50px;
   background-color: green;
 }
-/* 
-.flexbox-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  align-content: center;
+.blue-button {
+  height: 50px;
+  width: 50px;
+  background-color: blue;
+}
+.black-button {
+  height: 50px;
+  width: 50px;
+  background-color: black;
+}
+.yellow-button {
+  height: 50px;
+  width: 50px;
+  background-color: yellow;
+}
+.white-button {
+  height: 50px;
+  width: 50px;
+  background-color: white;
 }
 
-.flexbox-item {
-  width: 300px;
-  height: 600px;
-  margin: 10px;
-  border: 3px solid #333;
-  background-color: #dfdfdf;
+for (let i = 0; i < colorArr.length; i++) {
+  const colorButton = document.createElement("button");
+  colorButton.classList.add(`${colorArr[i]}-button`);
+  colorButton.style.backgroundColor = colorArr[i]; // Set the background color to the corresponding color
+  colorButton.addEventListener("click", () => {
+    currentColor = colorArr[i]; // Set the current color to the clicked color
+  });
+  colorPalette.appendChild(colorButton);
 }
-.flexbox-item-1 {
-  min-height: 100px;
-  max-height: 500px;
-}
-.flexbox-item-2 {
-  min-height: 200px;
-}
-.flexbox-item-3 {
-  min-height: 300px;
-} */
-
-/* .colorPalette {
-  
-} */

@@ -60,3 +60,80 @@ A good domain name for this project is `USERNAME-pixel-art-maker.surge.sh` where
 - [style](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style)
 - [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
 - [appendChild](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)
+
+
+
+My personal notes:
+-----
+// function clickToPaint(event) {
+//   // here's where we'll be making our changes to the pixel's colors.
+//   event.target.style.backgroundColor = currentColor; //we're saying- At this event, (click) we want the computer to target the background color of the pixel and modify it to red.
+// }
+// function createColorPalette(color) {
+//   let colorArr = ['green', 'blue', 'red']
+// }
+
+
+
+-------
+
+// const draggableElement = document.getElementsByClassName("grid");
+
+// let startX, startY, deltaX, deltaY;
+
+// draggableElement.addEventListener("mousedown", (event) => {
+//   startX = event.clientX;
+//   startY = event.clientY;
+
+//   document.addEventListener("mousemove", onMouseMove);
+//   document.addEventListener("mouseup", onMouseUp);
+// });
+
+// function onMouseMove(event) {
+//   deltaX = event.clientX - startX;
+//   deltaY = event.clientY - startY;
+
+//   draggableElement.style.left = `${draggableElement.offsetLeft + deltaX}px`;
+//   draggableElement.style.top = `${draggableElement.offsetTop + deltaY}px`;
+
+//   startX = event.clientX;
+//   startY = event.clientY;
+// }
+
+// function onMouseUp() {
+//   document.removeEventListener("mousemove", onMouseMove);
+//   document.removeEventListener("mouseup", onMouseUp);
+// }
+
+// In JavaScript, when an event is triggered
+//(such as a click, hover, or keypress), an event object is automatically created by
+//the browser and passed as an argument to the event listener function that's
+//responsible for handling the event.
+
+// By convention, this event object is often named event or e, and it contains
+//information about the event that was triggered, such as:
+
+// The type of the event (e.g. "click", "mouseover", "keydown")
+// The target element that the event was triggered on
+// The position of the mouse pointer (for mouse events)
+// The key that was pressed (for keyboard events)
+// The time at which the event occurred
+// Other properties and methods that provide additional details about the event
+// You can access these properties and methods of the event object inside your
+//event listener function to perform specific actions based on the event that was
+//triggered. For example, you might use the event.target property to identify the
+//element that was clicked, or use the event.preventDefault() method to prevent the
+//default behavior of an event (such as following a link or submitting a form).
+
+
+
+
+*** CURRENTLY WHERE I'm AT ***
+MAR 8, 2023 @ 2300hrs
+--I have a color palette but I need to now create the color boxes that go inside the color palette.
+
+
+--Then I have to check to see if the paint with hte mouse down and move around event listeners are working. 
+
+Then I should push up this repo again as a v.2
+"The note would be "Cleaner code build and added functionality"
