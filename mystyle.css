@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+  width: 0px;
+  height: 0px;
+  margin: 0 auto;
+}
+
+.pixel {
+  background-color: white;
+  border: 1px solid black;
+  width: 15px;
+  height: 15px;
+}
+
+.color-palette {
+  height: 300px;
+  width: 200px;
+  background-color: grey;
+}
+
+.red-button {
+  height: 50px;
+  width: 50px;
+  background-color: red;
+}
+
+.blue-button {
+  height: 50px;
+  width: 50px;
+  background-color: blue;
+}
+
+.black-button {
+  height: 50px;
+  width: 50px;
+  background-color: black;
+}
+
+.yellow-button {
+  height: 50px;
+  width: 50px;
+  background-color: yellow;
+}
+
+.green-button {
+  height: 50px;
+  width: 50px;
+  background-color: green;
+}
+/* 
+.flexbox-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
+
+.flexbox-item {
+  width: 300px;
+  height: 600px;
+  margin: 10px;
+  border: 3px solid #333;
+  background-color: #dfdfdf;
+}
+.flexbox-item-1 {
+  min-height: 100px;
+  max-height: 500px;
+}
+.flexbox-item-2 {
+  min-height: 200px;
+}
+.flexbox-item-3 {
+  min-height: 300px;
+} */
+
+/* .colorPalette {
+  
+} */
